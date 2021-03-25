@@ -104,8 +104,8 @@ namespace GetItemCQRSTester
         {
             Action showMethod = () =>
             {
-                var content = client.GetAsync($"api/Items/GetItem/{Id}");
-                _logger.LogWarning($"Processed request with id {Id}");
+                var content = client.GetAsync($"api/Items/GetItem/{Id}").Result;
+                _logger.LogWarning($"Processed request with id {Id} and {content.StatusCode}");
             };
             return showMethod;
         }
